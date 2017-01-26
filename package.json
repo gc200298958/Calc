@@ -1,0 +1,16 @@
+{
+  "name": "comp3025-lesson1",
+  "version": "1.0.0",
+  "description": "Demo jQuery Mobile App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Hybrid",
+    "Mobile",
+    "Apps"
+  ],
+  "author": "Tom Tsiliopoulos",
+  "license": "ISC"
+}
