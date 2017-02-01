@@ -7,6 +7,7 @@
   <!-- CSS Section -->
   <link rel="stylesheet" href="/Scripts/lib/jquery-mobile-bower/css/jquery.mobile-1.4.5.min.css">
   <link rel="stylesheet" href="/Scripts/screen.css">
+
 </head>
 <body>
 
@@ -21,41 +22,41 @@
     <div data-role="main" class="ui-content">
       <form >
       <div class="ui-field-contain">
-        <label for="fullname"></label>
+        <label for="screen"></label>
         <input type="text" name="screen" id="screen">       
       </div>
     </form>
     <div class="ui-grid-d">
       <div class="ui-block-a">
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">A/C</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">7</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">4</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">1</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">0</a><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="ac">A/C</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="7">7</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="4">4</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="1">1</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="0">0</button><br>
         <span></span>
       </div>
       <div class="ui-block-b">
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">+/-</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">8</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">5</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">2</a><br>
+         <button class="ui-btn ui-corner-all ui-shadow" value="+-">+/-</button><br>
+         <button class="ui-btn ui-corner-all ui-shadow" value="8">8</button><br>
+         <button class="ui-btn ui-corner-all ui-shadow" value="5">5</button><br>
+         <button class="ui-btn ui-corner-all ui-shadow" value="2">2</button><br>
         <span></span>
       </div>
       <div class="ui-block-c">
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">%</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">9</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">6</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">3</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">.</a><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="%">%</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="9">9</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="6">6</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="3">3</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value=".">.</button><br>
 
         <span></span>
       </div>
       <div class="ui-block-d">
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">/</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">*</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">-</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">+</a><br>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow">=</a><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="/">/</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="*">x</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="-">-</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="+">+</button><br>
+        <button class="ui-btn ui-corner-all ui-shadow" value="=">=</button><br>
         
         
         <span></span>
@@ -65,35 +66,101 @@
 </div> 
     </div>
 
-    <div data-role="footer" data-position="fixed">
-      <h1>&copy 2017 All Rights Reserved</h1>
-    </div>
+
   </div> <!-- end home page -->
-
-  <!--  Contact Page Container -->
-  <div data-role="page" data-theme="b" id="contact">
-    <div data-role="header">
-      <h1>Header Content</h1>
-    </div>
-    <div data-role="navbar">
-    <ul>
-      <li><a href="#home" data-icon="home" data-transition="flip">Home</a></li>
-      <li><a href="#contact" data-icon="phone" data-transition="flip">Contact</a></li>
-    </ul>
-  </div>
-
     <!-- Main Content goes here -->
     <div data-role="main" class="ui-content">
-      <p>Contact Page Content Goes Here</p>
+      
     </div>
 
-    <div data-role="footer">
-      <h1>&copy 2017 All Rights Reserved</h1>
-    </div>
-  </div> <!-- end home page -->
 
   <!-- JavaScript Section -->
   <script src="/Scripts/lib/jquery/dist/jquery.min.js"></script>
   <script src="/Scripts/lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
+  <script>
+  $(document).ready(function(){
+
+    var valueOne='';
+    var ValueTwo='';
+    var opp;
+    var oppClicked = false;
+
+    function caculate(num1,num2,opperand)
+    {
+      if (opperand == '*')
+      {
+        return num1*num2;
+      }
+      else if (opperand == '+')
+      {
+        return num1+num2;
+      }
+      else if (opperand == '-')
+      {
+        return num1-num2;
+      } 
+      else 
+      {
+        return num1/num2;
+      }
+    }
+
+     $("button").on("tap",function(){                
+        var  x = $(this).attr("value");
+        if(!isNaN(x)){
+          if (oppClicked)
+          {
+            ValueTwo = ValueTwo + (x);
+            document.getElementById("screen").value = ValueTwo;
+
+          }
+          else
+          {
+            valueOne = valueOne + (x);
+            document.getElementById("screen").value = valueOne;
+          }
+
+        console.log(x);
+        }
+        else if (x== '=')
+        {
+          console.log(caculate(parseInt(valueOne),parseInt(ValueTwo),opp));
+          document.getElementById("screen").value = (caculate(parseInt(valueOne),parseInt(ValueTwo),opp));
+        }
+        else if (x=='*')
+        {
+          opp = x;
+          oppClicked = true;
+        }
+        else if (x=='+')
+        {
+          opp = x;
+          oppClicked = true;
+          console.log('+');
+        }
+        else if (x=='-')
+        {
+          opp = x;
+          oppClicked = true;
+          console.log('-');
+        }
+        else if (x=='/')
+        {
+          opp = x;
+          oppClicked = true;
+        console.log('/');
+        }
+        else if (x == 'ac')
+        {
+          console.log("clear");
+          document.getElementById("screen").value = "clear";
+          valueOne = '';
+          ValueTwo = '';
+          oppClicked = false; 
+        }
+
+    });
+  });
+</script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 {
-  "name": "comp3025-lesson1",
-  "description": "Demo jQuery Mobile App",
+  "name": "calc",
+  "description": "",
   "main": "index.js",
   "authors": [
-    "Tom Tsiliopoulos"
+    "Anoyan Nithiananthan"
   ],
   "license": "ISC",
   "keywords": [

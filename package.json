@@ -1,7 +1,7 @@
 {
-  "name": "comp3025-lesson1",
+  "name": "calc",
   "version": "1.0.0",
-  "description": "Demo jQuery Mobile App",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,6 @@
     "Mobile",
     "Apps"
   ],
-  "author": "Tom Tsiliopoulos",
+  "author": "Anoyan Nithiananthan",
   "license": "ISC"
 }
