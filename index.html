@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <!-- this app is an caculator. should be able to add subtract divide and multiply two values -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -26,6 +27,7 @@
         <input type="text" name="screen" id="screen">       
       </div>
     </form>
+    <!-- The following is the ui for the caculator -->
     <div class="ui-grid-d">
       <div class="ui-block-a">
         <button class="ui-btn ui-corner-all ui-shadow" value="ac">A/C</button><br>
@@ -43,11 +45,12 @@
         <span></span>
       </div>
       <div class="ui-block-c">
-        <button class="ui-btn ui-corner-all ui-shadow" value="%">%</button><br>
+        
+        <button class="ui-btn ui-corner-all ui-shadow" value=".">.</button><br>
         <button class="ui-btn ui-corner-all ui-shadow" value="9">9</button><br>
         <button class="ui-btn ui-corner-all ui-shadow" value="6">6</button><br>
         <button class="ui-btn ui-corner-all ui-shadow" value="3">3</button><br>
-        <button class="ui-btn ui-corner-all ui-shadow" value=".">.</button><br>
+        
 
         <span></span>
       </div>
@@ -77,6 +80,7 @@
   <!-- JavaScript Section -->
   <script src="/Scripts/lib/jquery/dist/jquery.min.js"></script>
   <script src="/Scripts/lib/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
+  <!-- the following is the logic of the caculator -->
   <script>
   $(document).ready(function(){
 
@@ -122,15 +126,43 @@
 
         console.log(x);
         }
+        else if (x== '.')
+        {
+          if (oppClicked)
+          {
+            ValueTwo = ValueTwo + (x);
+            document.getElementById("screen").value = ValueTwo;
+
+          }
+          else
+          {
+            valueOne = valueOne + (x);
+            document.getElementById("screen").value = valueOne;
+          }
+        }
         else if (x== '=')
         {
           console.log(caculate(parseInt(valueOne),parseInt(ValueTwo),opp));
-          document.getElementById("screen").value = (caculate(parseInt(valueOne),parseInt(ValueTwo),opp));
+          document.getElementById("screen").value = (caculate(parseFloat(valueOne),parseFloat(ValueTwo),opp));
         }
         else if (x=='*')
         {
           opp = x;
           oppClicked = true;
+        }
+        else if (x=='+-')
+        {
+          if (oppClicked)
+          {
+            ValueTwo = ValueTwo * -1;
+            document.getElementById("screen").value = ValueTwo;
+
+          }
+          else
+          {
+            valueOne = valueOne * -1;
+            document.getElementById("screen").value = valueOne;
+          }
         }
         else if (x=='+')
         {
